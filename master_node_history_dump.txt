@@ -1,0 +1,94 @@
+    1  vi /etc/selinux/config
+    2  reboot
+    3  ssh-keygen -b 4096
+    4  for id in okdm okdn01 okdn02; do ssh-copy-id $id.net.local; done
+    5  nslookup okdm.net.local
+    6  yum install wget git net-tools bind-utils yum-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct -y
+    7  yum install epel-release -y
+    8  yum install wget git net-tools bind-utils yum-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct -y
+    9  yum install openshift-ansible openshift-ansible-docs openshift-ansible-playbooks openshift-ansible-roles centos-release-openshift-origin311 -y
+   10  yum install ansible -y
+   11  yum update -y
+   12  yum install tmux vim wget htop iftop net-tools -y
+   13  yum update -y
+   14  reboot
+   15  docker ps
+   16  cd /opt
+   17  ls
+   18  cd ~
+   19  yum downgrade ansible -y
+   20  poweroff
+   21  yum install pyOpenSSL
+   22  ssh okdn01
+   23  ssh okdn02
+   24  ls
+   25  vim hosts
+   26  cp hosts /opt/hosts_with_explicit_infra
+   27  vim hosts
+   28  cat /opt/hosts_with_explicit_infra 
+   29  vim hosts
+   30  vim /opt/hosts_with_explicit_infra 
+   31  vim hosts
+   32  vim /opt/hosts_with_explicit_infra 
+   33  vim hosts
+   34  systemctl status iptables
+   35  systemctl status firewalld
+   36  iftop
+   37  tailf /var/log/messages 
+   38  systemctl status docker
+   39  systemctl status firewalld
+   40  systemctl status iptables
+   41  tailf /var/log/messages 
+   42  kubectl get -n openshift-sdn pods
+   43  oc cluster status
+   44  docker ps
+   45  docker images --all
+   46  telnet localhost 8443
+   47  yum install telnet -y
+   48  telnet localhost 8443
+   49  systemctl status etcd
+   50  systemctl start etcd
+   51  systemctl status etcd
+   52  poweroff
+   53  ls
+   54  ls -lrt
+   55  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+   56  yum install openshift-ansible -y
+   57  yum downgrade ansible -y
+   58  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+   59  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   60  cd /etc/origin/master/
+   61  ls
+   62  ls -laF
+   63  htpasswd -c htpasswd admin
+   64  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   65  oc cluster status
+   66  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   67  cd ~
+   68  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   69  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   70  vim hosts
+   71  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   72  vim hosts
+   73  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   74  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   75  oc cluster status
+   76  ls -lrt
+   77  vim hosts
+   78  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   79  vim hosts
+   80  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   81  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   82  ls
+   83  vim hosts
+   84  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml 
+   85  ansible-playbook -i hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+   86  oc cluster status
+   87  docker ps
+   88  rpm -qa | grep shift
+   89  ls
+   90  cat hosts
+   91  cat /proc/cpuinfo 
+   92  cd /opt
+   93  ls
+   94  history > master_node_history_dump.txt
