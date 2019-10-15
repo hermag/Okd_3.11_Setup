@@ -1,0 +1,37 @@
+[OSEv3:children]
+masters
+etcd
+nodes
+
+[OSEv3:vars]
+openshift_master_default_subdomain=apps.net.local
+ansible_ssh_user=root
+ansible_become=yes
+openshift_master_cluster_method=native
+openshift_master_cluster_hostname=okdm.net.local
+openshift_master_cluster_public_hostname=okd.net.local
+deployment_type=origin
+
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+openshift_master_htpasswd_file='/etc/origin/master/htpasswd'
+openshift_docker_selinux_enabled=True
+openshift_docker_options="--signature-verification=false --insecure-registry=172.30.0.0/16 --log-opt max-size=1M --log-opt max-file=3 --disable-legacy-registry=true"
+openshift_router_selector='region=infra'
+openshift_registry_selector='region=infra'
+openshift_master_api_port=8443
+openshift_master_console_port=8443
+openshift_disable_check=memory_availability,disk_availability,docker_image_availability,docker_storage
+openshift_web_console_install=True
+openshift_console_install=True
+openshift_metrics_install_metrics=True
+
+[masters]
+okdm.net.local openshift_ip=192.168.122.81 openshift_node_group_name='node-config-master-infra' openshift_schedulable=true containerized=false connection=local ansible_become=yes
+
+[etcd]
+okdm.net.local openshift_ip=192.168.122.81 openshift_node_group_name='node-config-master-infra' openshift_schedulable=true containerized=false connection=local ansible_become=yes
+
+[nodes]
+okdm.net.local openshift_node_group_name='node-config-master-infra'
+okdn01.net.local openshift_node_group_name='node-config-compute'
+okdn02.net.local openshift_node_group_name='node-config-compute'
