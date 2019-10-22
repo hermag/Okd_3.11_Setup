@@ -1,0 +1,274 @@
+    1  yum install epel-release -y
+    2  vim /etc/selinux/config
+    3  yum install epel-release -y 
+    4  yum update -y
+    5  yum install tmux net-tools bind-utils vim -y
+    6  history
+    7  vim /etc/selinux/config
+    8  reboot
+    9  yum install htop  -y
+   10  htop
+   11  getenforce
+   12  pvdisplay 
+   13  pvs
+   14  lvs
+   15  ifconfig
+   16  ssh-keygen -b 4096
+   17  ifconfig
+   18  hostname
+   19  vim /etc/hosts
+   20  passwd
+   21  ssh-copy-id pyinfra3
+   22  ssh-copy-id pyinfra4
+   23  ssh-copy-id pyinfra5
+   24  ssh-copy-id pyinfra6
+   25  history
+   26  ssh-copy-id pyinfra3
+   27  ssh-copy-id pyinfra4
+   28  ssh-copy-id pyinfra5
+   29  ssh-copy-id pyinfra6
+   30  clear
+   31  yum updat -y
+   32  yum update -y
+   33  ssh pyinfra3
+   34  ssh pyinfra4
+   35  ssh pyinfra5
+   36  ssh pyinfra6
+   37  w
+   38  history
+   39  ssh pyinfra4
+   40  nmtui
+   41  systemctl restart NetworkManager
+   42  nslookup google.com
+   43  vim /etc/resolv.conf 
+   44  hostname
+   45  hostnamectl set-hostname pyinfra3.sgdc-okd.local
+   46  nmtui
+   47  systemctl restart NetworkManager
+   48  nslookup google.com
+   49  nslookup pyinfra2.sgdc-okd.local
+   50  nslookup pyinfra3.sgdc-okd.local
+   51  nslookup pyinfra4.sgdc-okd.local
+   52  nslookup pyinfra5.sgdc-okd.local
+   53  nslookup pyinfra6.sgdc-okd.local
+   54  yum updat e-y
+   55  yum update -y
+   56  reboot
+   57  systemctl stop firewalld
+   58  systemctl disable firewalld
+   59  yum install iptables -y 
+   60  systemctl status iptables
+   61  vim /etc/selinux/config
+   62  reboot
+   63  yum install -y yum-utils device-mapper-persistent-data lvm2
+   64  ssh pyinfra4 'yum install -y yum-utils device-mapper-persistent-data lvm2'
+   65  ssh pyinfra5 'yum install -y yum-utils device-mapper-persistent-data lvm2'
+   66  ssh pyinfra6 'yum install -y yum-utils device-mapper-persistent-data lvm2'
+   67  yum install docker wget vim -y
+   68  for host_name in pyinfra3 pyinfra4 pyinfra5 pyinfra6; do ssh $host_name 'yum install -y  wget git zile nano net-tools docker bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct openssl-devel httpd-tools NetworkManager python-cryptography python2-pip python-devel  python-passlib'; done
+   69  systemctl status iptables
+   70  systemctl status firewalld
+   71  for id in 3 4 5 6; do ssh pyinfra$id 'systemctl disable firewalld && systemctl enable iptables && systemctl start iptables'; done
+   72  for id in 3 4 5 6; do ssh pyinfra$id 'systemctl stop firewalld'; done
+   73  for id in 3 4 5 6; do ssh pyinfra$id 'systemctl status iptables'; done
+   74  for id in 3 4 5 6; do ssh pyinfra$id 'yum install pyOpenSSL -y'; done
+   75  for id in 3 4 5 6; do ssh pyinfra$id 'yum install ansible -y'; done
+   76  for id in 6 5 4 3; do ssh pyinfra$id 'systemctl enable docker'; done
+   77  for id in 6 5 4 3; do ssh pyinfra$id reboot'; done
+   78  for id in 6 5 4 3; do ssh pyinfra$id 'reboot'; done
+   79  systemctl status iptables
+   80  for id in 3 4 5 6; do ssh pyinfra$id 'systemctl status iptables && systemctl status firewalld && systemctl status docker'; done
+   81  sytemctl status iptables
+   82  systemctl status iptables
+   83  cd /opt
+   84  ls
+   85  vim hosts
+   86  yum list | grep openshift
+   87  cd /etc/docker/
+   88  ls
+   89  ls -alF
+   90  vim daemon.json 
+   91  pwd
+   92  yum update -y
+   93  reboot
+   94  cd /etc/
+   95  vim sysctl.conf
+   96  pwd
+   97  reboot
+   98  clear
+   99  docker ps
+  100  cd /opt
+  101  ls
+  102  vim hosts
+  103  yum install ansible -y
+  104  yum list | grep openshift
+  105  yum install centos-release-openshift-origin311.noarch -y
+  106  ls -laF
+  107  cat hosts
+  108  cd /etc/origin/master/htpasswd
+  109  ls
+  110  cd /etc/
+  111  ls
+  112  find / -name htpasswd
+  113  mkdir -p /etc/origin/master
+  114  cd /etc/origin/master/
+  115  ls
+  116  htpasswd -b htpasswd admin $ne5yrzf
+  117  htpasswd -b htpasswd admin
+  118  htpasswd -b htpasswd 'admin' '$ne5yrzf'
+  119  ls -laF
+  120  htpasswd -c htpasswd
+  121  htpasswd -c htpasswd admin
+  122  ls -laF
+  123  cat htpasswd 
+  124  cd ~
+  125  ls /opt
+  126  cat /opt/hosts
+  127  find / -name prerequisites.yml
+  128  find / -name prerequisites*
+  129  yum install openshift-ansible
+  130  find / -name prerequisites*
+  131  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+  132  ssh k8sm02.sgdc-okd.local
+  133  ssh k8sm03.sgdc-okd.local
+  134  ssh infra01.sgdc-okd.local
+  135  ssh node01.sgdc-okd.local
+  136  ssh node02.sgdc-okd.local
+  137  ssh node03.sgdc-okd.local
+  138  ssh node04.sgdc-okd.local
+  139  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+  140  vim /opt/hosts
+  141  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+  142  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml 
+  143  mkdir /etc/origin/node
+  144  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/openshift-master/config.yml 
+  145  vim /opt/hosts
+  146  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/openshift-master/config.yml 
+  147  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+  148  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+  149  hostname
+  150  hostnamectl set-hostname k8sm01.sgdc-okd.local
+  151  hostname
+  152  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+  153  reboot
+  154  docker ps
+  155  systemctl enable docker
+  156  systemctl start docker
+  157  docker ps
+  158  ps aux | grep docker
+  159  clear
+  160  docer ps
+  161  docker ps
+  162  clear
+  163  docker ps
+  164  ls /home
+  165  systemctl start docker
+  166  journalctl -xe
+  167  cat /opt/hosts
+  168  docker ps
+  169  vim /etc/hosts
+  170  ssh k8sm01
+  171  ssh node01
+  172  cat /opt/hosts 
+  173  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/adhoc/uninstall.yml 
+  174  cat /etc/hosts
+  175  ssh k8sm02.sgdc-okd.local
+  176  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/adhoc/uninstall.yml 
+  177  history | grep install
+  178  cat /etc/hosts
+  179  docker ps
+  180  systemctl start docker
+  181  systemctl status docker.service
+  182  yum remove docker -y 
+  183  yum autoremove -y
+  184  cd /etc/docker/
+  185  ld
+  186  ls
+  187  cat daemon.json.rpmsave 
+  188  cp daemon.json.rpmsave /opt/daemon.json
+  189  ls
+  190  cd /etc/
+  191  rm -rf docker
+  192  cd ~
+  193  yum install docker -y
+  194  cp /opt/daemon.json /etc/docker/
+  195  systemctl restart docker
+  196  systemctl status docker
+  197  for host_name in k8sm01 k8sm02 k8sm03 node03; do ssh $host_name "systemctl enable docker"; done
+  198  cat /etc/hosts
+  199  ssh infra01
+  200  ssh infra02
+  201  ssh node01
+  202  ssh node02
+  203  ssh node03
+  204  ls -laF
+  205  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+  206  history | grep yum
+  207  for host_name in pyinfra3 pyinfra4 pyinfra5 pyinfra6; do ssh $host_name 'yum install -y  wget git zile nano net-tools docker bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct openssl-devel httpd-tools NetworkManager python-cryptography python2-pip python-devel  python-passlib'; done
+  208  yum update -y
+  209  reboot
+  210  ansible-playbook -i /opt/hosts /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+  211  nslookup pyinfra3.sgdc-okd.local
+  212  cat /etc/hosts
+  213  systemctl status docker
+  214  journalctl manage -fu docker
+  215  journalctl  -fu docker
+  216  clear
+  217  journalctl  -fu docker
+  218  history
+  219  vim /opt/hosts
+  220  yum remove docker* -y
+  221  yum autoremove -y
+  222  ls /opt
+  223  cd /etc/ocker
+  224  cd /etc/docker
+  225  ls -laF
+  226  rm -rf *
+  227  cd /var/lib/docker
+  228  ls
+  229  rm -rf *
+  230  cd ../
+  231  ls
+  232  rm -rf docke
+  233  rm -rf docker
+  234  ls docker
+  235  pwd
+  236  find / -name docker
+  237  yum autoremove -y && yum autoremove -y
+  238  yum autoremove -y
+  239  yum update -y
+  240  cd /usr/lib/systemd
+  241  ls
+  242  cd system
+  243  ls
+  244  find / -name docker.service
+  245  cd ~
+  246  yum update -y
+  247  yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine -y
+  248  yum install -y yum-utils device-mapper-persistent-data lvm2
+  249  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  250  yum install docker-ce -y
+  251  systemctl status docker
+  252  systemctl restart docker
+  253  systemctl status docker
+  254  systemctl stop docker
+  255  cd /etc/docker
+  256  ls
+  257  pwd
+  258  cp /opt/daemon.json .
+  259  ls -laF
+  260  cd /etc/docker/
+  261  ls
+  262  cat daemon.json 
+  263  vim daemon.json 
+  264  systemctl enable docker
+  265  reboot
+  266  systemctl status docker
+  267  cd /opt
+  268  ls
+  269  cat hosts
+  270  cd /opt
+  271  ls
+  272  history
+  273  ls -laF
+  274  history > history.txt

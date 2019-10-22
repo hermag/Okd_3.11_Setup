@@ -1,0 +1,43 @@
+[OSEv3:children]
+masters
+etcd
+nodes
+
+[OSEv3:vars]
+openshift_master_default_subdomain=apps.sgdc-okd.local
+ansible_ssh_user=root
+ansible_become=yes
+openshift_master_cluster_method=native
+openshift_master_cluster_hostname=pyinfra3.sgdc-okd.local
+openshift_master_cluster_public_hostname=k8sm.sgdc-okd.local
+deployment_type=origin
+
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
+openshift_master_htpasswd_file='/etc/origin/master/htpasswd'
+openshift_docker_options='--selinux-disabled --insecure-registry 172.30.0.0/16'
+openshift_router_selector='region=infra'
+openshift_registry_selector='region=infra'
+openshift_master_api_port=8443
+openshift_master_console_port=8443
+openshift_disable_check=memory_availability,disk_availability,docker_image_availability,docker_storage
+
+[masters]
+k8sm01.sgdc-okd.local openshift_node_group_name='node-config-master'
+k8sm02.sgdc-okd.local openshift_node_group_name='node-config-master'
+k8sm03.sgdc-okd.local openshift_node_group_name='node-config-master'
+
+[etcd]
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+
+[nodes]
+k8sm01.sgdc-okd.local openshift_node_group_name='node-config-master'
+k8sm02.sgdc-okd.local openshift_node_group_name='node-config-master'
+k8sm03.sgdc-okd.local openshift_node_group_name='node-config-master'
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+infra01.sgdc-okd.local openshift_node_group_name='node-config-infra'
+node01.sgdc-okd.local openshift_node_group_name='node-config-compute'
+node02.sgdc-okd.local openshift_node_group_name='node-config-compute'
+node03.sgdc-okd.local openshift_node_group_name='node-config-compute'
