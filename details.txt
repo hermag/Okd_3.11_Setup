@@ -1,0 +1,8 @@
+In order to get admin rights for user admin you need to log in on one of the master nodes, and login as admin to the
+openshift from command line.
+
+oc login system:admin
+
+After that you need to assign admin rights to the user admin
+
+oc adm policy add-cluster-role-to-user cluster-admin admin
